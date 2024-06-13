@@ -27,14 +27,14 @@ public class CategoryController {
     }
 
     @GetMapping("/add")
-    @PreAuthorize("hasAuthority('ADMIN)")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String showAddForm(Model model) {
         model.addAttribute("category", new Category());
         return "category/add";
     }
 
     @PostMapping("/add")
-    @PreAuthorize("hasAuthority('ADMIN)")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String addCategory(@Valid @ModelAttribute("category") Category category, BindingResult result) {
         if (result.hasErrors()) {
             return "category/add";
